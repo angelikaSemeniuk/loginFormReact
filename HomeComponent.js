@@ -5,9 +5,8 @@ export default class HomeComponent extends React.Component {
         return (
             <div className="navigation">
                 <div className="form-navigation">
-                    <p dangerouslySetInnerHTML={{__html: "Welcome, " + localStorage.getItem("currentUser")}}></p>
+                    <p>You need authorization! Please, sign in or register!</p>
                 </div>
-
             </div>
         );
     }

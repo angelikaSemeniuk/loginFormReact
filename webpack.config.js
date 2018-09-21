@@ -1,4 +1,6 @@
 var path = require('path');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
+var HtmlWebpackTemplate = require('html-webpack-template');
 
 module.exports = {
     mode: 'development',
@@ -11,5 +13,12 @@ module.exports = {
         rules: [
             { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" }
         ]
-    }
+    },
+    devServer: {
+        historyApiFallback: true,
+    },
+    plugins: [new HtmlWebpackPlugin({
+        template: HtmlWebpackTemplate,
+        bodyHtmlSnippet: "<div id='root'></div>",
+    })],
 };

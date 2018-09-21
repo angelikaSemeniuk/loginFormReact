@@ -61,7 +61,7 @@ export default class SignUpComponent extends React.Component {
             users.push({name: this.state.fullName, login: this.state.login, password: this.state.password});
             localStorage.setItem("users", JSON.stringify(users));
             localStorage.setItem("currentUser", this.state.fullName);
-            this.context.router.history.push('/');
+            this.context.router.history.push('/authorized');
         }
         console.error("users-after", users);
 
