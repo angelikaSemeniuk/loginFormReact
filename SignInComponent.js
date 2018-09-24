@@ -13,7 +13,6 @@ export default class SignInComponent extends React.Component {
         }
         this.userExist = false;
         this.handleSignIn = this.handleSignIn.bind(this);
-        this.submit = false;
     }
 
     static get contextTypes () {
@@ -33,7 +32,6 @@ export default class SignInComponent extends React.Component {
     handleSignIn (event) {
         event.preventDefault();
         const users = JSON.parse(localStorage.getItem("users"));
-        console.error("users", users);
 
         // noinspection JSAnnotator
         if (this.state.login == "" || this.state.password == "") {
@@ -42,14 +40,15 @@ export default class SignInComponent extends React.Component {
         } else {
             users.forEach((item) => {
                 if(item.login == this.state.login && item.password == this.state.password) {
+                    localStorage.setItem("authorized", true);
                     localStorage.setItem("currentUser", item.name);
                     this.userExist = true;
-                    this.context.router.history.push('/authorized');
+                    this.context.router.history.push('/');
                 }
             });
         }
 
-        console.error("userExist", this.userExist);
+        // console.error("userExist", this.userExist);
         if(!this.userExist) {
             alert("There is no such user, please sign up");
             this.setState({login: ""});
@@ -67,7 +66,6 @@ export default class SignInComponent extends React.Component {
                     <input type="submit" value="Submit"/>
                     <Link to="/signupform">Sign Up</Link>
                 </form>
-                <Route exact path="/signupform" component={SignUpComponent}/>
             </div>
         );
     }

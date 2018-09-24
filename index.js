@@ -1,11 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import LoginForm from "./LoginForm";
 import {BrowserRouter} from "react-router-dom";
+import App from "./App";
 
 ReactDOM.render(
     <BrowserRouter>
-        <LoginForm />
+        <App />
     </BrowserRouter>,
     document.getElementById("root")
 );

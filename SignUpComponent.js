@@ -61,9 +61,10 @@ export default class SignUpComponent extends React.Component {
             users.push({name: this.state.fullName, login: this.state.login, password: this.state.password});
             localStorage.setItem("users", JSON.stringify(users));
             localStorage.setItem("currentUser", this.state.fullName);
-            this.context.router.history.push('/authorized');
+            localStorage.setItem("authorized", true);
+            this.context.router.history.push('/');
         }
-        console.error("users-after", users);
+        // console.error("users-after", users);
 
     }
 
@@ -75,18 +76,6 @@ export default class SignUpComponent extends React.Component {
                     <input type="text" value={this.state.fullName} onChange={this.changeName.bind(this)} placeholder="Full name" />
                     <input type="text" value={this.state.login} onChange={this.changeLogin.bind(this)} placeholder="Login" />
                     <input type="password" value={this.state.password} onChange={this.changePassword.bind(this)} placeholder="Password" />
-                    {/*<label>Country</label>
-                    <select className="countries">
-                        <option value="ukraine">Ukraine</option>
-                        <option value="estonia">Estonia</option>
-                        <option value="usa">USA</option>
-                        <option value="germany">Germany</option>
-                        <option value="poland">Poland</option>
-                        <option value="sweden">Sweden</option>
-                        <option value="norway">Norway</option>
-                        <option value="france">France</option>
-                        <option value="netherlands">Netherlands</option>
-                    </select>*/}
                     <input type="submit" value="Submit"/>
                 </form>
             </div>
