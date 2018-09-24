@@ -1,8 +1,6 @@
 import React from "react";
-import {BrowserRouter as Router, Route, Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 import PropTypes from "prop-types";
-import SignUpComponent from "./SignUpComponent";
-
 
 export default class SignInComponent extends React.Component {
     constructor(props,context) {
@@ -58,14 +56,19 @@ export default class SignInComponent extends React.Component {
 
     render () {
         return (
-            <div className="signInForm">
-                <h4>Please enter your information</h4>
-                <form onSubmit={this.handleSignIn}>
-                    <input type="text" value={this.state.login} onChange={this.changeLogin.bind(this)} placeholder="Login" />
-                    <input type="password" value={this.state.password} onChange={this.changePassword.bind(this)} placeholder="Password" />
-                    <input type="submit" value="Submit"/>
-                    <Link to="/signupform">Sign Up</Link>
-                </form>
+            <div>
+                <div className="navigation">
+                    <Link to="/">Home</Link>
+                </div>
+                <div className="signInForm">
+                    <h4>Please enter your information</h4>
+                    <form onSubmit={this.handleSignIn}>
+                        <input type="text" value={this.state.login} onChange={this.changeLogin.bind(this)} placeholder="Login" />
+                        <input type="password" value={this.state.password} onChange={this.changePassword.bind(this)} placeholder="Password" />
+                        <input type="submit" value="Submit"/>
+                        <Link to="/signupform">Sign Up</Link>
+                    </form>
+                </div>
             </div>
         );
     }

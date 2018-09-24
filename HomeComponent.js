@@ -26,19 +26,17 @@ export default class HomeComponent extends React.Component {
         const authorized = JSON.parse(localStorage.getItem("authorized"));
         return (
             <div className="navigation">
+                <Link to="/">Home</Link>
                 { authorized ? (
                     <div className="form-navigation">
-                        <Link to="/">Home</Link>
                         <p dangerouslySetInnerHTML={{__html: "Welcome, " + localStorage.getItem("currentUser")}}></p>
                         <button onClick={this.handleSignOut.bind(this)}>Sign out</button>
                     </div>
                 ) : (
-                    <div className="form-navigation">
-                        <Link to="/">Home</Link>
-                        <Link to="/signinform">Sign In</Link>
-                        <Link to="/signupform">Sign Up</Link>
-                        <p>You need authorization! Please, sign in or register!</p>
-                    </div>
+                        <div className="form-navigation">
+                            <Link to="/signinform">Sign In</Link>
+                            <Link to="/signupform">Sign Up</Link>
+                        </div>
                 )
                 }
             </div>

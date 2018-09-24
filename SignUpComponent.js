@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-
+import {Link} from "react-router-dom";
 
 export default class SignUpComponent extends React.Component {
     constructor(props,context) {
@@ -70,14 +70,19 @@ export default class SignUpComponent extends React.Component {
 
     render () {
         return (
-            <div className="signUpForm">
-                <h4>Please enter your information</h4>
-                <form onSubmit={this.handleSubmit}>
-                    <input type="text" value={this.state.fullName} onChange={this.changeName.bind(this)} placeholder="Full name" />
-                    <input type="text" value={this.state.login} onChange={this.changeLogin.bind(this)} placeholder="Login" />
-                    <input type="password" value={this.state.password} onChange={this.changePassword.bind(this)} placeholder="Password" />
-                    <input type="submit" value="Submit"/>
-                </form>
+            <div>
+                <div className="navigation">
+                    <Link to="/">Home</Link>
+                </div>
+                <div className="signUpForm">
+                    <h4>Please enter your information</h4>
+                    <form onSubmit={this.handleSubmit}>
+                        <input type="text" value={this.state.fullName} onChange={this.changeName.bind(this)} placeholder="Full name" />
+                        <input type="text" value={this.state.login} onChange={this.changeLogin.bind(this)} placeholder="Login" />
+                        <input type="password" value={this.state.password} onChange={this.changePassword.bind(this)} placeholder="Password" />
+                        <input type="submit" value="Submit"/>
+                    </form>
+                </div>
             </div>
         );
     }

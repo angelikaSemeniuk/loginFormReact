@@ -18,7 +18,6 @@ module.exports = {
         historyApiFallback: true,
     },
     plugins: [new HtmlWebpackPlugin({
-        template: HtmlWebpackTemplate,
-        bodyHtmlSnippet: "<div id='root'></div>",
+        template:'index.html',
     })],
 };
